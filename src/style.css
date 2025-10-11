@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
+body > .parent-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1em;
+}
+
+.parent-container > .very-wide {
+  --icofont: "Material Symbols Rounded";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+
+  button.icon {
+    height: 2.5rem;
+    padding: 0.5em;
+    aspect-ratio: 1/1;
+    color: grey;
+    background-color: canvas;
+    border: 1px solid grey;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-family: var(--icofont);
+    z-index: 10;
+    transform: scale(0.8);
+
+    transition:
+      0.5s background-color ease-in-out,
+      0.1s transform ease-in-out;
+  }
+  & > .icon:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: rgba(128, 128, 128, 0.363);
+    transform: scale(0.85);
+  }
+  & > .icon:active {
+    transform: scale(0.8);
+  }
+  & > button.icon.hide {
+    visibility: hidden;
+  }
+}
+
+.very-wide > .container {
+  display: flex;
+  justify-content: center;
+  width: max-content;
+  img {
+    filter: blur(4px);
+    opacity: 0.5;
+    position: relative;
+    height: 300px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 0.25em;
+    z-index: 1;
+    transform: scale(0.8);
+    transition:
+      0.5s transform ease-in,
+      0.5s opacity ease-in,
+      0.5s position ease-in;
+  }
+  img.visible {
+    filter: blur(0);
+    opacity: 1;
+    position: absolute;
+    transform: scale(1);
+    z-index: 2;
+  }
+}
+
+.parent-container > ul.scroller {
+  display: flex;
+  gap: 1em;
+  width: 100%;
+  justify-content: center;
+  list-style: none;
+  padding: 0.5em;
+
+  li {
+    height: 10px;
+    aspect-ratio: 1/1;
+    background: grey;
+    border-radius: 50%;
+    transition: 0.3s transform ease-in-out;
+  }
+
+  li.active {
+    border: 1px solid grey;
+    background-color: white;
+    transform: scale(1.5);
+  }
+}
